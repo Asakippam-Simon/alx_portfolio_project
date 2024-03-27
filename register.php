@@ -1,33 +1,19 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "your_mysql_username";
-$password = "your_mysql_password";
-$database = "your_database_name";
+// Include database configuration
+require_once 'db_config.php';
 
-$conn = new mysqli($servername, $username, $password, $database);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Process registration form data
+// Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hash the password
+    // Prepare data for insertion
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    // Prepare and execute SQL statement
-    $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $username, $email, $password);
-
-    if ($stmt->execute()) {
-        echo "Registration successful!";
+    // Insert data into 'users' table
+    $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
-
-    $stmt->close();
 }
-
-$conn->close();
 ?>

@@ -1,10 +1,13 @@
 <?php
-$servername = "localhost";
-$username = "your_mysql_username";
-$password = "your_mysql_password";
-$database = "your_database_name";
+// Database configuration
+$dbHost = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbName = "students";
 
-$conn = new mysqli($servername, $username, $password, $database);
+// Creating database connection
+$conn = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+//Checking connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
