@@ -1,7 +1,7 @@
 /* Styles */
 * {
-    margin: 1;
-    padding: 1;
+    margin: 0;
+    padding: 0; 
     box-sizing: border-box;
 }
 
@@ -53,4 +53,121 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.smaller-font {
+    font-size: 20px;
+}
+
+.bigger-font {
+    font-size: 32px;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: #f0f0f0;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-container input[type="text"] {
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-container button[type="submit"] {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-link {
+    margin-left: 10px; 
+}
+
+.cylindrical-link-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Adjust as needed */
+}
+
+.cylindrical-link {
+    display: inline-block;
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px; 
+    border-radius: 20px; 
+    line-height: 40px; 
+    text-align: center;
+    text-decoration: none;
+    transform: translateY(-20px); 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+    position: relative;
+    width: 160px; 
+}
+
+.cylindrical-link a {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.cylindrical-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 50%;
+    background-color: #4CAF50; /* Same as background color */
+    border-radius: 50%;
+    z-index: -1;
+}
+
+
+.newsletter-section {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.newsletter-section p {
+    margin-bottom: 5px;
+}
+
+.newsletter-section input[type="email"] {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.newsletter-section button[type="submit"] {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.newsletter-section button[type="submit"]:hover {
+    background-color: #45a049;
 }
